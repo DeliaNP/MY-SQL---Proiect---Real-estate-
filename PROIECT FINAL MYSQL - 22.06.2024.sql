@@ -8,9 +8,6 @@ SHOW databases;
 -- ----------------------------------------------------------- CREATE TABLE -------------------------------------------------------------------------
 -- -- ------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* RELATIE SELF-REFERENCING:
-- coloana "manager_id este cheie straina care se refera la coloana "employee_id";
-- aceasta relatie permite o relatie intre angajati si manageri, unde fiecare manager este la randul lui un angajat la aceasta companie. */
 
 CREATE TABLE employees (
     employee_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,9 +18,6 @@ CREATE TABLE employees (
 );
 -- ------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* RELATIE ONE-TO-ONE:
-- coloana "employee_id din tabelul "details_employees" este cheie straina si este unica, care face referire la coloana "employee_id" din tabelul "employees";
-- asigura integritatea referentiala intre cele doua tabele.  */
 
 CREATE TABLE details_employees (
     details_id INT PRIMARY KEY,
@@ -35,9 +29,6 @@ CREATE TABLE details_employees (
 );
 -- ------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* RELATIE ONE-TO-MANY:
--coloana "employee_id" din tabela "proprietati" si coloana "employee_id" din tabela "employees";
-- mai multe inregistrati din "proprietati" pot fi asociate cu o singura inregistrare din "employees" */
 
 CREATE TABLE properties (
     property_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -46,8 +37,6 @@ CREATE TABLE properties (
 );
 -- ------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* RELATIE ONE-TO-MANY:
-- specifică o cheie străină care se leagă de coloana “employee_id” din tabelul “employees”.*/
 
 CREATE TABLE details_properties (
     details_properties_id INT PRIMARY KEY,
@@ -62,8 +51,7 @@ CREATE TABLE details_properties (
 );
 -- ------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* Fiecare inregistrare din tabelul "detalii_proprietati" se asociaza cu o inregistrare din tabelul "proprietati"
- prin intermediul coloanei "employee_id */
+
 ALTER TABLE details_properties
 ADD CONSTRAINT FK_details_properties_properties
 FOREIGN KEY (employee_id)
@@ -151,7 +139,7 @@ INSERT INTO details_properties (details_properties_id, property_status, property
 (34,'rent', 'apartment', '2', 'Bucharest, Calea Mosilor, no. 178', '2', '680 Euro',5);
 
 -- ------------------------------------------------------------------------------------------------------------------------------------------------
--- adaugam o coloana noua "spaceArea": 
+
 ALTER table details_properties ADD COLUMN space_area VARCHAR(50) AFTER rooms;
 -- ------------------------------------------------------------------------------------------------------------------------------------------------
 
