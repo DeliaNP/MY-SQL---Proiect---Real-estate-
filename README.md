@@ -29,17 +29,95 @@ The tables are connected in the following way:
 
   The following instructions were written in the scope of CREATING the structure of the database (CREATE INSTRUCTIONS)
 
-  **Inserati aici toate instructiunile de CREATE pe care le-ati scris, atat create database cat si create table**
+```A fost creata baza de date si ulterior au fost create tabele cu angajati, cu detalii despre acestia, proprietati, detalii despre proprietati si clienti.``` 
+
+  ```
+CREATE DATABASE real_estate_Buc1;
+USE real_estate_Buc1;
+SHOW databases;
+
+CREATE TABLE employees (
+employee_id INT PRIMARY KEY AUTO_INCREMENT,
+last_name VARCHAR(25),
+first_name VARCHAR(20),
+manager_id INT,
+FOREIGN KEY (manager_id) REFERENCES employees(employee_id)
+);
+
+CREATE TABLE details_employees (
+details_id INT PRIMARY KEY,
+position VARCHAR(15),
+email VARCHAR(50),
+phone VARCHAR(20),
+employee_id INT UNIQUE,
+FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
+CREATE TABLE properties (
+property_id INT PRIMARY KEY AUTO_INCREMENT,
+employee_id INT,
+FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
+CREATE TABLE details_properties (
+details_properties_id INT PRIMARY KEY,
+property_status VARCHAR(50) NOT NULL,
+property_type VARCHAR(50) NOT NULL,
+rooms INT NOT NULL,
+property_address VARCHAR(60) NOT NULL,
+district VARCHAR(30) NOT NULL,
+price VARCHAR(15) NOT NULL,
+employee_id INT,
+FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
+CREATE TABLE clients (
+client_id INT PRIMARY KEY AUTO_INCREMENT,
+last_name VARCHAR(50),
+first_name VARCHAR(50),
+email VARCHAR(255),
+phone VARCHAR(50),
+rental_date VARCHAR(50),
+action_status VARCHAR(50),
+property_type VARCHAR(50),
+address VARCHAR(150),
+employee_id INT,
+FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
+```
 
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
+  
+``` Fiecare inregistrare din tabelul "details_properties" se asociaza cu o inregistrare din tabelul "properties", prin intermediul coloanei "employee_id". ```
+```
+ALTER TABLE details_properties
+ADD CONSTRAINT FK_details_properties_properties
+FOREIGN KEY (employee_id)
+REFERENCES properties (employee_id);
+```
 
-  **Inserati aici toate instructiunile de ALTER pe care le-ati scris. Incercati sa includeti instructiuni cat mai variate cum ar fi:**
- **- schimbare nume tabela**
- **- adaugare sau stergere coloana**
- **- redenumire coloana**
- **- adaugare proprietati coloana (ex: adaugare auto-increment)**
- **- modificare proprietati coloana (ex: modificare tip de data, modificare pozitie coloana etc)**
- **- adaugare cheie primara sau secundara (daca nu a fost deja adaugata la crearea tabelei)**
+``` A fost adaugata o coloana noua, denumita "space_area" in tabelul "details_properties" si pozitionata dupa coloana "rooms".```
+
+```ALTER table details_properties ADD COLUMN space_area VARCHAR(50) AFTER rooms;```
+
+``` Au fost modificate tipurile de date ce pot fi introduse pe coloanele "property_status" si "email"  ```
+
+``` ALTER TABLE details_properties MODIFY property_status char (30) not null;```
+
+``` ALTER TABLE customers MODIFY email varchar(40);```
+
+``` A fost adaugata coloana "date_of_birth" in tabelul "details_employees" si ulterior a fost stearsa.```
+
+``` ALTER TABLE details_employees ADD COLUMN date_of_birth date;```
+
+``` ALTER TABLE details_employees DROP COLUMN date_of_birth;```
+
+``` A fost adaugata coloana "sex" in tabelul "details_employees" si ulterior i s-a schimbat denumirea in "customers".```
+
+``` ALTER TABLE details_employees ADD COLUMN SEX CHAR (10); ```
+
+``` ALTER TABLE details_employees CHANGE SEX GENDER VARCHAR(10) after position; ```
  
   
   <li>DML (Data Manipulation Language)</li>
