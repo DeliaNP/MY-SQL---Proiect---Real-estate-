@@ -155,7 +155,8 @@ INSERT INTO properties (property_id, employee_id)
 VALUES (1, 1),(2, 2),(3, 3),(4, 4),(5, 5),(6, 6),(7, 7),(8, 8);
     
 
-INSERT INTO details_properties (details_properties_id, property_status, property_type, rooms, property_address, district, price, employee_id) VALUES
+INSERT INTO details_properties (details_properties_id, property_status, property_type, rooms, property_address, district, price, employee_id)
+VALUES
 (1, 'rent', 'apartment', '2', 'Bucharest, Campia Libertatii St., no. 16', '3', '450 Euro', 1),
 (2,'for rent', 'apartment', '2', 'Bucharest, Liviu Rebreanu Blvd., no. 53', '3', '500 Euro',1),
 (3,'for sale', 'apartemnt', '3', 'Bucharest, Nitu Vasile St., no. 2', '4', '75000 Euro',1),
@@ -191,14 +192,16 @@ INSERT INTO details_properties (details_properties_id, property_status, property
 (33,'sold', 'apartment', '1', 'Bucharest, Sperantei St., no. 5', '1', '900 Euro',5),
 (34,'rent', 'apartment', '2', 'Bucharest, Calea Mosilor, no. 178', '2', '680 Euro',5);
 
-INSERT INTO details_properties (details_properties_id, property_status, property_type, rooms, space_area, property_address, district, price, employee_id) VALUES 
+INSERT INTO details_properties (details_properties_id, property_status, property_type, rooms, space_area, property_address, district, price, employee_id)
+VALUES 
 (35,'for rent', 'commercial space', '0', '70 sqm', 'Bucharest, Lascar Catargiu Blvd, no. 12', '1', '1150 Euro',6),
 (36,'for rent', 'commercial space', '0', '85 sqm', 'Bucharest, Mihai Eminescu St., no. 14', '2', '1500 Euro',6),
 (37,'for rent', 'commercial space', '0', '110 sqm', 'Bucharest, Baba Novac St., no. 7', '3', '2200 Euro',6),
 (38,'rent', 'commercial space', '0', '195 sqm', 'Bucharest, Mihai Bravu St., no. 71', '3', '3420 Euro',6);
 
 
-INSERT INTO clients (last_name, first_name, email, phone, rental_date, action_status, property_type, address, employee_id) VALUES
+INSERT INTO clients (last_name, first_name, email, phone, rental_date, action_status, property_type, address, employee_id)
+VALUES
 ('Matei', 'Florina', 'florina.matei@gmail.com', '0745678912', '17.04.2023', 'bought', 'apartment', 'Soseaua Pantelimon', 1),
 ('Matei', 'Florina', 'florina.matei@gmail.com', '0745678912', '03.11.2023', 'rented', 'commercial space', 'Soseaua Pantelimon', 1),
 ('Constantin', 'Georgiana', 'georgiana-constantin@gmail.com', '0753214567', '12.01.2024', 'rented', 'apartment space', 'Campia Libertatii', 2),
@@ -210,17 +213,18 @@ INSERT INTO clients (last_name, first_name, email, phone, rental_date, action_st
 ('Dumbrava', 'George', 'george.d@gmail.com', '0721333258', '23.01.2024', 'bought', 'apartment', 'Strada Tineretului', 6),
 ('Dumitru', 'Roxana', 'roxi.dumitru@gmail.com', '0721369333', '01.03.2024', 'bought', 'apartment', 'Strada Sperantei', 7); ```
 
-
-  After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
+After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
   **Inserati aici toate instructiunile de UPDATE pe care le-ati scris folosind filtrarile necesare astfel incat sa actualizati doar datele de care aveti nevoie**
 
+``` UPDATE details_employees SET gender="M" WHERE employee_id in (2, 4, 7, 8); ```
+``` UPDATE details_employees SET gender="F" WHERE employee_id in (1, 3, 5, 6); ```
 
   <li>DQL (Data Query Language)</li>
 
 After the testing process, I deleted the data that was no longer relevant in order to preserve the database clean: 
 
-**Inserati aici toate instructiunile de DELETE pe care le-ati scris folosind filtrarile necesare astfel incat sa stergeti doar datele de care aveti nevoie**
+``` DROP DATABASE real_estate_Buc1;```
 
 In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
 
