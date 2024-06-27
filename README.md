@@ -261,7 +261,50 @@ DELETE FROM details_employees WHERE gender='M';
 
 In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
 
-**Inserati aici toate instructiunile de SELECT pe care le-ati scris folosind filtrarile necesare astfel incat sa extrageti doar datele de care aveti nevoie**
+```The commands were executed to be able to view all the information from the created and populated tables.```
+```
+SELECT * FROM employees;
+SELECT * FROM details_employees;
+SELECT * FROM properties;
+SELECT * FROM details_properties;
+SELECT * FROM clients;
+```
+
+```I selected from the 'details_properties' table the properties whose status was 'sold'.```
+```
+SELECT * FROM details_properties where property_status ="sold";
+```
+
+```I selected from the 'details_properties' table the properties with 2 rooms whose price is greater than 70000 EUR.```
+```
+SELECT * FROM details_properties where rooms = '2' or price > '70000 Euro';
+```
+
+```I selected from the 'details_properties' table the properties with the status 'for rent' and ordered them in ascending order.```
+```
+SELECT * FROM details_properties WHERE property_status="for rent" order by price asc;
+```
+
+```I selected the properties of type 'house' from the 'details_properties' table.```
+```
+SELECT * FROM details_properties where property_type ="house";
+```
+
+```I selected from "clients" table, the clients whose name is "Matei".```
+```
+SELECT * FROM clients where last_name= "Matei";
+```
+
+```I selected from the 'clients' table the properties of type 'apartment' with status 'rented' for which the client's first name is Cristina.```
+```
+SELECT * FROM clients where first_name= "Cristina" and property_type= "apartment" and action_status = "rented";
+```
+
+```I selected from "details_employees" table, the employee with id 4".```
+```
+SELECT * FROM details_employees WHERE employee_id = "4";
+```
+
 **Incercati sa acoperiti urmatoarele:**<br>
 **- where**<br>
 **- AND**<br>
