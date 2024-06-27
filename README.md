@@ -212,12 +212,38 @@ INSERT INTO clients (last_name, first_name, email, phone, rental_date, action_st
 ('Pop', 'Ion', 'popion@gmail.com', '0723234563', '06.02.2024', 'rented', 'commercial space', 'Soseaua Mihai Bravu', 5),
 ('Dumbrava', 'George', 'george.d@gmail.com', '0721333258', '23.01.2024', 'bought', 'apartment', 'Strada Tineretului', 6),
 ('Dumitru', 'Roxana', 'roxi.dumitru@gmail.com', '0721369333', '01.03.2024', 'bought', 'apartment', 'Strada Sperantei', 7);
+
+INSERT INTO details_employees (details_id, position, email, phone, employee_id) VALUES
+(2, 'Coordinator', 'georgep@gmail.com', '0723456789',2),
+(4, 'Agent','dumitrascuf@gmail.com', '0745678912',4),
+(7, 'Agent','mihaic@gmail.com', '0789123456',7),
+(8, 'Agent','valenting@gmail.com', '0791234567',8);
+
 ```
 
   After the insert, in order to prepare the data to be better suited for the testing process, I updated some data in the following way:
 
-  **Inserati aici toate instructiunile de UPDATE pe care le-ati scris folosind filtrarile necesare astfel incat sa actualizati doar datele de care aveti nevoie**
+```The "gender" column has been updated with information regarding the sex of each employee.```
+```
+UPDATE details_employees SET gender="M" WHERE employee_id in (2, 4, 7, 8); 
 
+UPDATE details_employees SET gender="F" WHERE employee_id in (1, 3, 5, 6);
+```
+
+```The column 'action_status' in the 'customers' table was modified to 'sold' for 'employee_id 1'.```
+```
+UPDATE customers SET action_status = 'sold' WHERE employee_id = '1';
+```
+
+```The 'price' column in the 'details_properties' table was modified for details_properties_id = '8'.```
+```
+UPDATE details_properties SET price='450 Euro' WHERE details_properties_id = '8';
+```
+
+```The first name for 'employee_id = 6' in the 'employees' table was modified.```
+```
+UPDATE employees SET first_name = 'Georgiana' WHERE employee_id = '6';
+```
 
   <li>DQL (Data Query Language)</li>
 
