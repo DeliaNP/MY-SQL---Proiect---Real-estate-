@@ -385,6 +385,6 @@ SELECT * FROM employees RIGHT JOIN details_employees ON employees.employee_id=de
 
 <li>Conclusions</li>
 
-**Inserati aici o concluzie cu privire la ceea ce ati lucrat, gen lucrurile pe care le-ati invatat, lessons learned, un rezumat asupra a ceea ce ati facut si orice alta informatie care vi se pare relevanta pentru o concluzie finala asupra a ceea ce ati lucrat**
+**The database development project for the real estate agency demonstrated an in-depth understanding of fundamental SQL concepts and highlighted the ability to implement and manage complex data structures. The combined use of DDL, DML, and DQL commands allowed for the creation of a robust, efficient, and user-friendly database that meets the operational needs of the real estate agency. This project represents a solid example of applying relational database principles and efficient data management in a real-world context.**
 
 </ol>
