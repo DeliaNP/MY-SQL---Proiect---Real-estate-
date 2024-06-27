@@ -217,8 +217,10 @@ After the insert, in order to prepare the data to be better suited for the testi
 
   **Inserati aici toate instructiunile de UPDATE pe care le-ati scris folosind filtrarile necesare astfel incat sa actualizati doar datele de care aveti nevoie**
 
-``` UPDATE details_employees SET gender="M" WHERE employee_id in (2, 4, 7, 8); ```
-``` UPDATE details_employees SET gender="F" WHERE employee_id in (1, 3, 5, 6); ```
+```
+ UPDATE details_employees SET gender="M" WHERE employee_id in (2, 4, 7, 8); 
+ UPDATE details_employees SET gender="F" WHERE employee_id in (1, 3, 5, 6);
+```
 
   <li>DQL (Data Query Language)</li>
 
