@@ -86,14 +86,47 @@ FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
 
   After the database and the tables have been created, a few ALTER instructions were written in order to update the structure of the database, as described below:
 
-  **Inserati aici toate instructiunile de ALTER pe care le-ati scris. Incercati sa includeti instructiuni cat mai variate cum ar fi:**
- **- schimbare nume tabela**
- **- adaugare sau stergere coloana**
- **- redenumire coloana**
- **- adaugare proprietati coloana (ex: adaugare auto-increment)**
- **- modificare proprietati coloana (ex: modificare tip de data, modificare pozitie coloana etc)**
- **- adaugare cheie primara sau secundara (daca nu a fost deja adaugata la crearea tabelei)**
- 
+``` Each record in the 'details_properties' table is associated with a record in the 'properties' table through the 'employee_id' column. ```
+```
+ALTER TABLE details_properties
+ADD CONSTRAINT FK_details_properties_properties
+FOREIGN KEY (employee_id)
+REFERENCES properties (employee_id);
+```
+
+```A new column named 'space_area' was added to the 'details_properties' table and positioned after the 'rooms' column.```
+
+```
+ALTER table details_properties ADD COLUMN space_area VARCHAR(50) AFTER rooms;
+```
+
+```The column name "clients" has been changed to "customers".```
+```
+ALTER TABLE clients RENAME TO customers;
+```
+
+```The data types that can be entered in the 'property_status' and 'email' columns have been modified.``` 
+
+```
+ALTER TABLE customers MODIFY email varchar(40);
+
+ALTER TABLE details_properties MODIFY property_status char (30) not null;
+```
+
+```The 'date_of_birth' column was added to the 'details_employees' table and was subsequently deleted.```
+```
+ALTER TABLE details_employees ADD COLUMN date_of_birth date;
+
+ALTER TABLE details_employees DROP COLUMN date_of_birth;
+```
+
+```The 'sex' column was added to the 'details_employees' table and was subsequently changed to 'gender'.```
+```
+ALTER TABLE details_employees ADD COLUMN SEX CHAR (10);
+
+ALTER TABLE details_employees CHANGE SEX GENDER VARCHAR(10) after position;
+```
+
   
   <li>DML (Data Manipulation Language)</li>
 
