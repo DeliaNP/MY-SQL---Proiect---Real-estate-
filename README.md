@@ -249,7 +249,15 @@ UPDATE employees SET first_name = 'Georgiana' WHERE employee_id = '6';
 
 After the testing process, I deleted the data that was no longer relevant in order to preserve the database clean: 
 
-**Inserati aici toate instructiunile de DELETE pe care le-ati scris folosind filtrarile necesare astfel incat sa stergeti doar datele de care aveti nevoie**
+``` The database was deleted, but recreated later.```
+```
+DROP DATABASE real_estate_Buc1;
+```
+
+```  The values in the 'gender' column were deleted where gender='M'.```
+```
+DELETE FROM details_employees WHERE gender='M';
+```
 
 In order to simulate various scenarios that might happen in real life I created the following queries that would cover multiple potential real-life situations:
 
