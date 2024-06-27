@@ -305,6 +305,51 @@ SELECT * FROM clients where first_name= "Cristina" and property_type= "apartment
 SELECT * FROM details_employees WHERE employee_id = "4";
 ```
 
+```I selected from"details_employees", the employee who has the job title 'agent' and the ID "6".```
+```
+SELECT * FROM details_employees WHERE position="agent" AND employee_id = "6";
+```
+
+```I counted the properties whose price is less than 1800 EUR.```
+```
+SELECT count(price) FROM details_properties WHERE price < '1800 Euro';
+```
+
+```I selected the lowest price from the "details_properties" table for properties whose price is greater than or equal to 1700 Euro.```
+```
+SELECT min(price) FROM details_properties WHERE price >= '1700 Euro';
+```
+
+```I selected maximum price from "details_properties" table where price is grater than 2000 and the property status is "rent".```
+```
+SELECT MAX(PRICE) FROM details_properties WHERE price >"2000" and property_status = "rent";
+```
+
+```I calculated the average for the "commercial space" properties in district 3.```
+```
+SELECT AVG(price) FROM details_properties WHERE district= "3" and property_type = 'commercial space';
+```
+
+``` I selected from "details_properties" table the properties whose price begin with "7".```
+```
+SELECT * FROM details_properties WHERE price LIKE '7%';
+```
+
+```I selected from "clients" table, the client whose phone number ends with "567".```
+```
+SELECT * FROM clients WHERE phone LIKE "%567";
+```
+
+``` I selected the first 5 properties from the "details_properties" table.```
+```
+SELECT * FROM details_properties LIMIT 5;
+```
+
+```I selected from "details_properties" table and counted ordering by district, all properties.```
+```
+SELECT district, COUNT(*) AS num_properties FROM details_properties GROUP BY district;
+```
+
 **Incercati sa acoperiti urmatoarele:**<br>
 **- where**<br>
 **- AND**<br>
