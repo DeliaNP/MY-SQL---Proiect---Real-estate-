@@ -350,20 +350,36 @@ SELECT * FROM details_properties LIMIT 5;
 SELECT district, COUNT(*) AS num_properties FROM details_properties GROUP BY district;
 ```
 
-**Incercati sa acoperiti urmatoarele:**<br>
-**- where**<br>
-**- AND**<br>
-**- OR**<br>
-**- NOT**<br>
-**- like**<br>
-**- inner join**<br>
-**- left join**<br>
-**- OPTIONAL: right join**<br>
-**- OPTIONAL: cross join**<br>
-**- functii agregate**<br>
-**- group by**<br>
-**- having**<br>
-**- OPTIONAL DAR RECOMANDAT: Subqueries - nu au fost in scopul cursului. Puteti sa consultati tutorialul [asta](https://www.techonthenet.com/mysql/subqueries.php) si daca nu intelegeti ceva contactati fie trainerul, fie coordonatorul de grupa**<br>
+```I selected 'district' from the table 'details_properties' where district is 'Ilfov', and I counted how many properties there are for each district 'Ilfov'. Then, I requested to display only those districts for which there are more than one property.```
+```
+SELECT district, COUNT(*) AS num_properties FROM details_properties WHERE district = 'Ilfov' GROUP BY district HAVING COUNT(*) > 1;
+```
+
+```I selected from "clients" table, the clients whose last name ends with "op" and the property status begin with "apart", for employee with ID "5".```
+```
+SELECT * FROM clients WHERE last_name LIKE '%op' OR property_type LIKE 'apar%' AND employee_id = '5';
+```
+
+```With this function, I created the Cartesian product between table "employees" and table "details_employees".```
+```
+SELECT * FROM employees CROSS JOIN details_employees;
+```
+
+```This function returns the common information from the two tables.```
+```
+SELECT * FROM employees INNER JOIN details_employees ON employees.employee_id = details_employees.employee_id;
+```
+
+```This function extracts all the information from the first table and populates it in the second table where applicable.```
+```
+SELECT * FROM employees LEFT JOIN details_employees ON employees.employee_id=details_employees.employee_id;
+```
+
+```This function extract all the information from the second table and populate the first one where applicable."```
+```
+SELECT * FROM employees RIGHT JOIN details_employees ON employees.employee_id=details_employees.employee_id;
+```
+
 
 </ol>
 
