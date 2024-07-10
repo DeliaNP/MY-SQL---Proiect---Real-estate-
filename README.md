@@ -1,4 +1,4 @@
-<h1>Database Project for **Inserati aici numele aplicatiei pe care o testati**</h1>
+<h1>Database Project for **MySQL**</h1>
 
 The scope of this project is to use all the SQL knowledge gained throught the Software Testing course and apply them in practice.
 
